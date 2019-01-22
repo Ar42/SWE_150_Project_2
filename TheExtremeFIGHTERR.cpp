@@ -1,4 +1,5 @@
 
+
 #include<iostream>
 #include"SFML\Graphics.hpp"
 #include"SFML\Audio.hpp"
@@ -225,7 +226,7 @@ public:
     Enemyboss2(Texture *texture, Vector2u windowSize)
     {
         this->shape.setTexture(*texture);
-        this ->shape.setTextureRect(IntRect(00, 00, 40, 40));
+        this->shape.setScale(.1f, .1f);
         this -> shape.rotate(270);
         this -> shape.setPosition(900, 300);
     }
@@ -247,7 +248,7 @@ public:
 
         this->shape.setTexture(*texture);
 
-        this ->shape.setTextureRect(IntRect(00, 00, 40, 40));
+        this->shape.setScale(.1f, .1f);
 
         this -> shape.rotate(270);
 
@@ -328,8 +329,8 @@ int main()
     Texture enemyTexboss, enemyTexboss2, enemyTexboss22, enemyTexboss3, enemyTexboss4;
 
     enemyTexboss.loadFromFile("ss.png");
-    enemyTexboss2.loadFromFile("fire_blue.png");
-    enemyTexboss22.loadFromFile("fire_blue.png");
+    enemyTexboss2.loadFromFile("fire1.png");
+    enemyTexboss22.loadFromFile("fire1.png");
     enemyTexboss3.loadFromFile("fire1.png");
     enemyTexboss4.loadFromFile("fire1.png");
     //menu
@@ -1066,7 +1067,7 @@ int main()
                                     enemies4.erase(enemies4.begin() + k); //delete enemies4
                                 }
                                 else
-                                    enemies4[k].HP = enemies4[k].HP - 2;// Take down enemies
+                                    enemies4[k].HP = enemies4[k].HP - 1;// Take down enemies
 
                                 player.bullets.erase(player.bullets.begin() + i);
                                 break;
@@ -1092,7 +1093,7 @@ int main()
 
                     for (size_t i = 0; i < enemies4.size(); i++)
                     {
-                        enemies4[i].shape.move(-9.f * dt * dtMultiplier, 0.f);
+                        enemies4[i].shape.move(-11.f * dt * dtMultiplier, 0.f);
                         enemies4[i].shape.rotate(.9);
 
                         //enemies[i].shape.move(-6.f * dt * dtMultiplier, 1.5f);
